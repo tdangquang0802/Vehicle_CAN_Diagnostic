@@ -1,0 +1,130 @@
+# =============================================================================
+# .gitignore for CANsyn monorepo
+#   common/  sim/ (F103)  ecu/ (F407 #1)  diag/ (F407 #2)  qt/
+# Patterns without a leading slash match at any depth, so they cover every
+# firmware project folder (sim/, ecu/, diag/) at once.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# STM32CubeIDE: build output folders (one per build configuration)
+# -----------------------------------------------------------------------------
+Debug/
+Release/
+# Custom build configurations (e.g. the BENCH measurement build)
+Bench/
+
+# -----------------------------------------------------------------------------
+# STM32CubeIDE: workspace and per-user IDE state
+# (.project, .cproject, .mxproject and *.ioc MUST stay in git)
+# -----------------------------------------------------------------------------
+.metadata/
+.settings/
+RemoteSystemsTempFiles/
+.externalToolBuilders/
+# Debug launch configs contain absolute paths and probe serial numbers
+*.launch
+# Keep this one if you want a shared debug config: remove the *.launch line above
+
+# -----------------------------------------------------------------------------
+# Compiler / linker artifacts (arm-none-eabi-gcc)
+# -----------------------------------------------------------------------------
+*.o
+*.obj
+*.d
+*.a
+*.elf
+*.axf
+*.bin
+*.hex
+*.srec
+*.map
+*.list
+*.lst
+*.su
+*.cyclo
+*.dfu
+# CubeIDE generated makefile fragments inside Debug/Release (already covered
+# by the folders above, listed for projects that build out of tree)
+subdir.mk
+objects.mk
+sources.mk
+objects.list
+makefile
+
+# -----------------------------------------------------------------------------
+# STM32CubeMX: backup and temp files
+# -----------------------------------------------------------------------------
+*.ioc.bak
+*.ioc~
+.mxproject.bak
+STM32CubeMX.log
+
+# -----------------------------------------------------------------------------
+# Other IDEs / toolchains (in case a board is built outside CubeIDE)
+# -----------------------------------------------------------------------------
+# Keil MDK
+*.uvguix.*
+*.uvoptx
+Objects/
+Listings/
+RTE/
+# IAR
+*.dep
+*.ewt
+settings/
+# VS Code (keep shared settings, ignore the rest)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+# CMake out-of-tree builds
+build/
+cmake-build-*/
+
+# -----------------------------------------------------------------------------
+# Qt dashboard (qt/)
+# -----------------------------------------------------------------------------
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+CMakeLists.txt.user*
+build-*/
+*-build-*/
+*.autosave
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h
+Makefile.Debug
+Makefile.Release
+*.qmlc
+*.jsc
+object_script.*
+# Windows deployment output
+release/
+debug/
+
+# -----------------------------------------------------------------------------
+# Bench measurement captures (Bench Measurement Guide)
+# Keep the filled-in result tables (.md); ignore raw captures.
+# -----------------------------------------------------------------------------
+*.sal
+*.sr
+*.vcd
+*.trc
+*.blf
+captures/
+logs/
+
+# -----------------------------------------------------------------------------
+# OS / editor noise
+# -----------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+*.bak
+*.tmp
