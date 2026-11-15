@@ -2,8 +2,9 @@
 /*
 
 # Nhung giu lai
-!/Diag_tool_F407/
+!/Diag_F407/
 !/ECU_F407/
+!/SIM_F103/
 !/.gitignore
 !/README.md
 !/Dashboard/
